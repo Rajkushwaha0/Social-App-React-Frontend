@@ -11,7 +11,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useState } from "react";
 
-export default function PostCard({ title, subheader, imgURL, text }) {
+function PostCard({ title, subheader, imgURL, text }) {
   const [isLiked, setIsLiked] = useState(false);
   return (
     <Card sx={{ maxWidth: 345, marginBottom: "3rem" }}>
@@ -48,3 +48,5 @@ export default function PostCard({ title, subheader, imgURL, text }) {
     </Card>
   );
 }
+
+export default React.memo(PostCard);

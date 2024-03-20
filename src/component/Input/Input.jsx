@@ -2,8 +2,10 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import LoadingButton from "@mui/lab/LoadingButton";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
+
+import postContext from "../../provider/PostProvider";
 
 const config = {
   headers: {
@@ -14,6 +16,7 @@ function Input() {
   const [postText, setPostText] = useState("");
   const [imgURL, setImgURL] = useState("");
   const [loading, setLoading] = useState(false);
+  const { posts, setPost } = useContext(postContext);
 
   async function createPost() {
     setLoading(true);
@@ -31,6 +34,7 @@ function Input() {
       )
       .then((response) => {
         console.log(response);
+        setPost([...posts, response.data]);
         setLoading(false);
         setImgURL("");
         setPostText("");

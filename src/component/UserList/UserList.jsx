@@ -42,7 +42,7 @@ export default function UserList() {
               </ListItemAvatar>
               <ListItemText
                 id={labelId}
-                primary={value.firstName + " " + value.secondName}
+                primary={value.firstName + " " + value.lastName}
               />
             </ListItemButton>
           </ListItem>
