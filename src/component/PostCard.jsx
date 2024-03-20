@@ -10,6 +10,7 @@ import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useState } from "react";
+import React from "react";
 
 function PostCard({ title, subheader, imgURL, text }) {
   const [isLiked, setIsLiked] = useState(false);
