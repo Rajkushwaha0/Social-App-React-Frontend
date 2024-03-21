@@ -37,7 +37,7 @@ export default function UserList() {
         const labelId = `checkbox-list-secondary-label-${value.id}`;
         return (
           <ListItem key={value.id} disablePadding>
-            <Link to={"./user/123"}>
+            <Link to={`./user/${value.id}`}>
               <ListItemButton>
                 <ListItemAvatar>
                   <Avatar alt={value.id} src={value.picture} />

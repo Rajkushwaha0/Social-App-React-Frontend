@@ -152,7 +152,9 @@ export default function Navbar() {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            <Link to={"./"}>Social App</Link>
+            <Link className="links" to={"./"}>
+              Social App
+            </Link>
           </Typography>
           <Search>
             <SearchIconWrapper>

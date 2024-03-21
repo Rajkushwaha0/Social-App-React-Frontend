@@ -1,7 +1,5 @@
-import { useEffect, useContext } from "react";
-import postContext from "../../provider/PostProvider";
 import PostCard from "../PostCard";
-import axios from "axios";
+import usePostCardList from "../../hooks/usePostCardList";
 
 const config = {
   headers: {
@@ -11,17 +9,23 @@ const config = {
 
 function PostCardList() {
   // const [posts, setPost] = useState([]);
-  const { posts, setPost } = useContext(postContext);
-  useEffect(() => {
-    axios
-      .get("https://dummyapi.io/data/v1/post", config)
-      .then((response) => {
-        setPost([...response.data.data]);
-      })
-      .catch((error) => {
-        alert("API CALL FAILED");
-      });
-  }, [posts]);
+
+  // from above to below
+
+  // const { posts, setPost } = useContext(postContext);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://dummyapi.io/data/v1/post", config)
+  //     .then((response) => {
+  //       setPost([...response.data.data]);
+  //     })
+  //     .catch((error) => {
+  //       alert("API CALL FAILED");
+  //     });
+  // }, [posts]);
+
+  // now this
+  const [posts] = usePostCardList();
   return posts.length == 0
     ? "Loading..."
     : posts.map((post) => (
